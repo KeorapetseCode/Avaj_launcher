@@ -5,7 +5,7 @@ import classes.WeatherProvider;
 
 public class WeatherTower extends Tower{
 
-    public static String getWeather(Coordinates coordinates) {
+    public String getWeather(Coordinates coordinates) {
         return WeatherProvider.getCurrentWeather(coordinates);
     }
 }
