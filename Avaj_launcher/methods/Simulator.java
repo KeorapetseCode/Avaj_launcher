@@ -4,10 +4,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.lang.System;
 import java.util.List;
+import java.util.Iterator;
 
 public class Simulator {
     public static int loop;
-    public static String[] vehiclesID;
+    public static List<String> vehiclesID = new ArrayList<String>();
     public static String[] vehicleTypes = {"Baloon", "Helicopter", "JetPlane"};
 
     public static void makeVehicles(Scanner input) {
@@ -23,23 +24,29 @@ public class Simulator {
         return false;
     }
 
-    public static Boolean checkIdRepl(List<?> id){
-        int i = 0;
+    public static Boolean checkIdRepl(List<String> id){
+        Iterator<String> ite = id.iterator();
+        int len = 0;
         int a = 0;
-        int res = 0;
-        while (id.get(i)) {
-            
+
+        while (ite.hasNext()) {
+            Simulator.vehiclesID.add(ite.next());
+            len++;
+        }
+        System.out.println("Array Ends");
+        while (a < len) {
+            System.out.println(Simulator.vehiclesID.get(a));
+            a++;
         }
         //String line = id.get(2);
-
-        return false;
+        return true;
     }
 
     public static Boolean fileValid(Scanner input) {
         //String[] vehicleType;
         List<String> id_s = new ArrayList<String>();
         String[] data = null;
-        String[] coord_height;
+        String[] coord_height = null;
         String line = null;
         int i = 0;
 
@@ -51,20 +58,11 @@ public class Simulator {
                System.out.println("Invalid Transport " + data[0]);
                return false;
            }
-           else {
-               id_s.add(data[1]);
-               if (Simulator.checkIdRepl(id_s)){
-                   System.out.println("There is ID replication");
-                    return false;
-                }
-               i++;
-
-           }
-            //break ;
+           id_s.add(data[1]);
         }
-        System.out.println("Printing ID's");
-        for (int a = 0; a < i; a++) {
-            System.out.println(id_s.get(a));
+        if (Simulator.checkIdRepl(id_s) == false){
+            System.out.println("There is ID replication");
+             return false;
         }
         return true;
     }

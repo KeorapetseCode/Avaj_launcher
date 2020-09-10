@@ -10,8 +10,8 @@ import methods.Simulator;
 
 public class Main {
     public static void main(String[] args) {
-        if (args.length != 1){
-            System.out.println("Incorrect Inputs");
+        if (args.length < 1){
+            System.out.println("No input file");
         }
         else if (args.length == 1){
             try{
