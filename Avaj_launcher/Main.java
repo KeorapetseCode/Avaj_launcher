@@ -23,14 +23,15 @@ public class Main {
                 catch (Exception n){
                     System.out.println("The first line of scenario is not a number");
                 }
-                if (Simulator.fileValid(myReader)) {
-                    Simulator.makeVehicles(myReader);
+                if (Simulator.fileValid(myReader) == false) {
+                    System.out.println("Invalid File Format");
+                    myReader.close();
+                    System.exit(0);
                 }
                 else {
-                    System.out.println("Invalid File Format");
+                    
+                    //Simulator.makeVehicles(myReader);
                 }
-                myReader.close();
-                //
             }
             catch(FileNotFoundException err){
                 System.out.println("An Error Occured!");
