@@ -8,7 +8,7 @@ public class AircraftFactory {
         Coordinates coordinates = new Coordinates();
         //Flyable flyable;
         Helicopter objHeli = new Helicopter();
-        if (type == "Helicopter"){
+        if (type.equals("Helicopter")){
             objHeli.helicopter(name, coordinates);
             return objHeli;
             //flyable = new Helicopter();

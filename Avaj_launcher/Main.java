@@ -29,16 +29,14 @@ public class Main {
                     System.exit(0);
                 }
                 else {
-                    
-                    //Simulator.makeVehicles(myReader);
+                    Simulator.startSim();
+                    myReader.close();
                 }
             }
             catch(FileNotFoundException err){
                 System.out.println("An Error Occured!");
                 err.printStackTrace();
             }
-            //System.out.println();
-            
         }
     }
 }
