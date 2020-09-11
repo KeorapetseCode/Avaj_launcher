@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.lang.System;
 import java.util.List;
 import java.util.Iterator;
+import java.lang.Integer;
+import classes.AircraftFactory;
 
 public class Simulator {
     public static int loop;//This is how many times the iteration of the entire program is gonna run.
@@ -14,20 +16,26 @@ public class Simulator {
     public static String[] vehicleTypes = {"Baloon", "Helicopter", "JetPlane"};
 
     public static void startSim() {
-        System.out.println("Coordinates List________");
-        Iterator<String> coordLst = Simulator.vehicleCoord.iterator();
-        Iterator<String> namList = Simulator.vehicleNames.iterator();
-        Iterator<String> idList = Simulator.vehiclesID.iterator();
-        while (coordLst.hasNext()) {
-            System.out.println(coordLst.next());
-        }
-        System.out.println("Names List_________");
-        while (namList.hasNext()) {
-            System.out.println(namList.next());
-        }
-        System.out.println("ID List______________");
-        while (idList.hasNext()) {
-            System.out.println(idList.next());
+        //AircraftFactory vehicleObj = new AircraftFactory();
+        Flyable vehicleObj;
+        int i = 0;
+        String line = null;
+        String name = null;
+        String id_s = null;
+        String[] coords;
+        Iterator<String> objNames = Simulator.vehicleNames.iterator();
+        Iterator<String> objIDs = Simulator.vehiclesID.iterator();
+
+        while (objNames.hasNext()) {
+
+            line = Simulator.vehicleCoord.get(i);
+            coords = line.split(" ", 1);
+            name = objNames.next();
+            id_s = objIDs.next();
+            System.out.println("Before Execution\n" + coords[0]);
+            //vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
+            System.out.println("\nIt's looping " + i);
+            i++;
         }
     }
 
