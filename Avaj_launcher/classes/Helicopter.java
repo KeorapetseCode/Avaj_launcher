@@ -16,15 +16,15 @@ public class Helicopter extends Aircrafts implements Flyable{
         int tempLat = this.coordinates.getLatitude();
         int tempHeight = this.coordinates.getHeight();
 
-        if (weather == "RAIN") {
+        if (weather.equals("RAIN")) {
             tempLong += 5;
             this.coordinates.coordinates(tempLong, tempLat, tempHeight);
         }
-        else if (weather == "FOG") {
+        else if (weather.equals("FOG")) {
             tempLong += 1;
             this.coordinates.coordinates(tempLong, tempLat, tempHeight);
         }
-        else if (weather == "SUN") {
+        else if (weather.equals("SUN")) {
             tempLong += 10;
             tempHeight += 2;
             if (tempHeight > 100) {
@@ -32,7 +32,7 @@ public class Helicopter extends Aircrafts implements Flyable{
             }
             this.coordinates.coordinates(tempLong, tempLat, tempHeight);
         }
-        else if (weather == "SNOW") {
+        else if (weather.equals("SNOW")) {
             tempHeight -= 12;
             if (tempHeight < 1){
                 tempHeight = 0;

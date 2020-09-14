@@ -18,7 +18,6 @@ public class WeatherProvider {
     public static String getCurrentWeather(Coordinates coordinates) {
         String errMsg = "Cannot generate weather because of height";
         if (coordinates.getHeight() <= 0) {
-        //    System.out.println("Cannot generate weather because of height");
             return errMsg;
         }
         else if (coordinates.getHeight() > 0) {

@@ -24,12 +24,16 @@ public class LogOutput{
     public static void txtOutput() {
         Iterator<String> namePlane = Simulator.vehicleNames.iterator();
         Iterator<String> idPlane = Simulator.vehiclesID.iterator();
+        Flyable flyObj;
+        Tower towerObj;
         
         try{
             FileWriter msgFile = new FileWriter("simulation.txt");
             while (namePlane.hasNext()) {
                 msgFile.write(msgReg(namePlane.next(), idPlane.next()));
-                
+            }
+            while (Simulator.loop > 0) {
+                Simulator.loop--;
             }
             msgFile.close();
         }
@@ -37,10 +41,6 @@ public class LogOutput{
             System.out.println("Cannot create simulation file");
             err.printStackTrace();
         }
-        
-        
-
-
     }
     
 }

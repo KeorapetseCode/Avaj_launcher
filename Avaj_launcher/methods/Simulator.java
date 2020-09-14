@@ -1,5 +1,4 @@
 package methods;
-import classes.Tower;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.lang.System;
@@ -13,10 +12,12 @@ public class Simulator {
     public static List<String> vehiclesID = new ArrayList<String>();
     public static List<String> vehicleNames = new ArrayList<String>();
     public static List<String> vehicleCoord = new ArrayList<String>();
+    public static List<Integer> logCounta = new ArrayList<Integer>();
+
     public static String[] vehicleTypes = {"Baloon", "Helicopter", "JetPlane"};
 
     public static void startSim() {
-        Flyable vehicleObj;
+        Flyable vehicleObj = null;
         int i = 0;
         String line = null;
         String name = null;
@@ -43,6 +44,7 @@ public class Simulator {
             }
             i++;
         }
+        LogOutput.txtOutput();
     }
 
     public static Boolean checkName(String data, String[] vehicleType) {
