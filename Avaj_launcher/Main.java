@@ -3,15 +3,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.lang.Integer;
 import methods.Simulator;
-
-//import java.util.Inte
-
-//import classes.*;
+import classes.Tower;
 
 public class Main {
     public static void main(String[] args) {
         if (args.length < 1){
-            System.out.println("No input file");
+            System.out.println("Invalid input file");
         }
         else if (args.length == 1){
             try{
@@ -30,6 +27,7 @@ public class Main {
                 }
                 else {
                     Simulator.startSim();
+                    //System.out.println("Showing all registered Aircrafts\n " + Tower.observers);
                     myReader.close();
                 }
             }

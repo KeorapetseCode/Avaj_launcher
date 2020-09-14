@@ -16,7 +16,6 @@ public class Simulator {
     public static String[] vehicleTypes = {"Baloon", "Helicopter", "JetPlane"};
 
     public static void startSim() {
-        //AircraftFactory vehicleObj = new AircraftFactory();
         Flyable vehicleObj;
         int i = 0;
         String line = null;
@@ -25,16 +24,23 @@ public class Simulator {
         String[] coords;
         Iterator<String> objNames = Simulator.vehicleNames.iterator();
         Iterator<String> objIDs = Simulator.vehiclesID.iterator();
+        WeatherTower controla = new WeatherTower();
 
         while (objNames.hasNext()) {
 
             line = Simulator.vehicleCoord.get(i);
-            coords = line.split(" ", 1);
+            coords = line.split(" ", 3);
             name = objNames.next();
             id_s = objIDs.next();
-            System.out.println("Before Execution\n" + coords[0]);
-            //vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
-            System.out.println("\nIt's looping " + i);
+            if (Integer.parseInt(coords[2]) > 0){
+                vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
+                controla.register(vehicleObj);
+            }
+            else {
+                Simulator.vehicleNames.remove(name);
+                Simulator.vehiclesID.remove(id_s);
+                Simulator.vehicleCoord.remove(line);
+            }
             i++;
         }
     }
