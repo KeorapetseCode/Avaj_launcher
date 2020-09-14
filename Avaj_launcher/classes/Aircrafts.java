@@ -9,7 +9,6 @@ public class Aircrafts {
         private long idCounta;
 
     protected void aircraft(String name, Coordinates coordinates){
-        //System.out.println("Aircraft Funct");
         this.name = name;
         this.coordinates = coordinates;
     }

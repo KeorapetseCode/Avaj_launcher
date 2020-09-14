@@ -2,8 +2,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.lang.Integer;
-import methods.Simulator;
 import classes.Tower;
+import methods.LogOutput;
+import methods.Simulator;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,6 +28,7 @@ public class Main {
                 }
                 else {
                     Simulator.startSim();
+                    LogOutput.txtOutput();
                     //System.out.println("Showing all registered Aircrafts\n " + Tower.observers);
                     myReader.close();
                 }
