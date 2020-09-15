@@ -6,10 +6,12 @@ public class Helicopter extends Aircrafts implements Flyable{
 
     private WeatherTower weatherObj;
 
-    public void helicopter(String name, Coordinates coordinates) {
+    public Helicopter(String name, Coordinates coordinates) {
         this.name = name;
         this.coordinates = coordinates;
     }
+
+//    @Override
     public void updateConditions() {
         String weather = weatherObj.getWeather(this.coordinates);
         int tempLong = this.coordinates.getLongitude();

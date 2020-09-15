@@ -1,8 +1,8 @@
 package methods;
 
-import classes.Tower;
-import classes.Aircrafts;
-import methods.Simulator;
+//import methods.Tower;
+//import classes.Aircrafts;
+//import methods.Simulator;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -21,20 +21,20 @@ public class LogOutput{
         return ret;
     }
 
-    public static void txtOutput() {
+    public static void txtOutput(Tower towerObj) {
         Iterator<String> namePlane = Simulator.vehicleNames.iterator();
         Iterator<String> idPlane = Simulator.vehiclesID.iterator();
-        Flyable flyObj;
-        Tower towerObj;
+    //    Flyable flyObj;
         
         try{
             FileWriter msgFile = new FileWriter("simulation.txt");
             while (namePlane.hasNext()) {
                 msgFile.write(msgReg(namePlane.next(), idPlane.next()));
-            }
+            }/*
             while (Simulator.loop > 0) {
+                towerObj.
                 Simulator.loop--;
-            }
+            }*/
             msgFile.close();
         }
         catch(IOException err) {

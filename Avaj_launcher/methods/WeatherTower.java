@@ -1,6 +1,6 @@
 package methods;
 import classes.Coordinates;
-import classes.Tower;
+//import methods.Tower;
 import classes.WeatherProvider;
 
 public class WeatherTower extends Tower{

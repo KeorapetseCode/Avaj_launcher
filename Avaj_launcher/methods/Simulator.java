@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Iterator;
 import java.lang.Integer;
 import classes.AircraftFactory;
+//import methods.Tower;
+//import methods.WeatherTower;
 
 public class Simulator {
     public static int loop;//This is how many times the iteration of the entire program is gonna run.
@@ -13,7 +15,7 @@ public class Simulator {
     public static List<String> vehicleNames = new ArrayList<String>();
     public static List<String> vehicleCoord = new ArrayList<String>();
     public static List<Integer> logCounta = new ArrayList<Integer>();
-
+    
     public static String[] vehicleTypes = {"Baloon", "Helicopter", "JetPlane"};
 
     public static void startSim() {
@@ -25,7 +27,8 @@ public class Simulator {
         String[] coords;
         Iterator<String> objNames = Simulator.vehicleNames.iterator();
         Iterator<String> objIDs = Simulator.vehiclesID.iterator();
-        WeatherTower controla = new WeatherTower();
+        WeatherTower objCoords = new WeatherTower();
+        Tower mainObj = new Tower();
 
         while (objNames.hasNext()) {
 
@@ -35,7 +38,8 @@ public class Simulator {
             id_s = objIDs.next();
             if (Integer.parseInt(coords[2]) > 0){ //Height of an aircraft has to be greater than 0 for an aircraft to be considered
                 vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
-                controla.register(vehicleObj);
+                vehicleObj.registerTower(objCoords);
+                mainObj.register(vehicleObj);
             }
             else {
                 Simulator.vehicleNames.remove(name);
@@ -44,7 +48,9 @@ public class Simulator {
             }
             i++;
         }
-        LogOutput.txtOutput();
+        System.out.println("Call Logout");
+        
+        LogOutput.txtOutput(mainObj);
     }
 
     public static Boolean checkName(String data, String[] vehicleType) {
