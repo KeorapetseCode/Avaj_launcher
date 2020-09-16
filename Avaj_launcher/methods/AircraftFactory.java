@@ -10,7 +10,10 @@ public class AircraftFactory {
 
         coordinates.coordinates(longitude, latitude, height);
         if (type.equals("Helicopter")){
-            flyable = new Helicopter(name, coordinates);
+            type = type + " " + name;
+            //System.out.println("Type is " + type + "\n");
+            flyable = new Helicopter(type, coordinates);
+            
             return flyable;
         }
         return flyable;

@@ -11,12 +11,16 @@ public class Aircrafts {
     protected void aircraft(String name, Coordinates coordinates){
         this.name = name;
         this.coordinates = coordinates;
+        this.idCounta = nextId();
     }
- 
-    protected long nextId(){
-        return idCounta++;
+
+    private long nextId(){
+        return idCounta += 1;
     }
-    
+
+    public long gettaL() {
+        return idCounta;
+    }
 }
 
 

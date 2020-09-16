@@ -43,7 +43,7 @@ public class Simulator {
             id_s = objIDs.next();
             if (Integer.parseInt(coords[2]) > 0){ //Height of an aircraft has to be greater than 0 for an aircraft to be considered
                 vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
-                
+                logCounta.add(i);
                 vehicleObj.registerTower(objCoords); //Cant tell where objCoords ends up
                 mainObj.register(vehicleObj);
             }
