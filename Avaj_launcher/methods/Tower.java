@@ -19,8 +19,7 @@ public class Tower {
     }
 
     protected void conditionsChange() {
-    int i = 1;
-    System.out.println("output IS " + this.observers.get(i));
+    //System.out.println("output IS ");
     
     for (Flyable dl : this.observers){
         dl.updateConditions();

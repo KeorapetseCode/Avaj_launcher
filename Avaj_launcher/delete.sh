@@ -2,6 +2,6 @@
 rm *.class
 rm classes/*.class
 rm methods/*.class
-rm sources.txt
+rm simulation.txt
 
 echo "<<<<<<<<<<It has Deleted>>>>>>>>>>>"

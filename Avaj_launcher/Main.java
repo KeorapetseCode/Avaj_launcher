@@ -5,7 +5,6 @@ import java.lang.Integer;
 //import methods.Tower;
 //import methods.LogOutput;
 import methods.Simulator;
-import classes.*;
 
 public class Main {
     public static void main(String[] args) {

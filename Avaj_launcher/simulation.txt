@@ -1,4 +1,0 @@
-Tower Says: Helicopter#H1 has registered to the weather tower
-Tower Says: Helicopter#H2 has registered to the weather tower
-Tower Says: Helicopter#H3 has registered to the weather tower
-Tower Says: Helicopter#H4 has registered to the weather tower
