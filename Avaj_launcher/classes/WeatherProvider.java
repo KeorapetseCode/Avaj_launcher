@@ -1,6 +1,6 @@
 package classes;
 import java.util.Random;
-import classes.Coordinates;
+//import classes.Coordinates;
 
 public class WeatherProvider {
     private static String[] weather = {"SUN", "RAIN", "FOG", "SNOW"};

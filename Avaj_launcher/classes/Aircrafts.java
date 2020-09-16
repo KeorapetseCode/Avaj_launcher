@@ -1,6 +1,6 @@
 //import Flyable.java;
 package classes;
-import classes.Coordinates;
+//import classes.Coordinates;
 
 public class Aircrafts {
         protected long id;

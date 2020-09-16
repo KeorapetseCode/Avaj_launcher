@@ -1,13 +1,17 @@
 package methods;
+
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.lang.System;
 import java.util.List;
 import java.util.Iterator;
 import java.lang.Integer;
-import classes.AircraftFactory;
+
 //import methods.Tower;
 //import methods.WeatherTower;
+
+//import classes.AircraftFactory;
 
 public class Simulator {
     public static int loop;//This is how many times the iteration of the entire program is gonna run.
@@ -29,6 +33,7 @@ public class Simulator {
         Iterator<String> objIDs = Simulator.vehiclesID.iterator();
         WeatherTower objCoords = new WeatherTower();
         Tower mainObj = new Tower();
+        AircraftFactory facVar = new AircraftFactory();
 
         while (objNames.hasNext()) {
 
@@ -37,8 +42,9 @@ public class Simulator {
             name = objNames.next();
             id_s = objIDs.next();
             if (Integer.parseInt(coords[2]) > 0){ //Height of an aircraft has to be greater than 0 for an aircraft to be considered
-                vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
-                vehicleObj.registerTower(objCoords);
+                vehicleObj = facVar.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
+                
+                vehicleObj.registerTower(objCoords); //Cant tell where objCoords ends up
                 mainObj.register(vehicleObj);
             }
             else {
@@ -49,7 +55,6 @@ public class Simulator {
             i++;
         }
         System.out.println("Call Logout");
-        
         LogOutput.txtOutput(mainObj);
     }
 

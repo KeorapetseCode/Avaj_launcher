@@ -1,8 +1,10 @@
 
 package methods;
-import methods.Flyable;
+//import methods.Flyable;
 import java.util.ArrayList;
-import java.util.Iterator;
+//import java.util.Iterator;
+
+//import classes.Aircrafts;
 
 public class Tower {
     private ArrayList<Flyable> observers = new ArrayList<Flyable>();
@@ -17,6 +19,16 @@ public class Tower {
     }
 
     protected void conditionsChange() {
+    int i = 1;
+    System.out.println("output IS " + this.observers.get(i));
     
-}
+    for (Flyable dl : this.observers){
+        dl.updateConditions();
+    }
+    /*Iterator<Flyable> iterVar = observers.iterator();
+    while (iterVar.hasNext()){
+        System.out.println("output IS " + i);
+        i++;
+    }*/
+    }
 }

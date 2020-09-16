@@ -13,6 +13,7 @@ public class Helicopter extends Aircrafts implements Flyable{
 
 //    @Override
     public void updateConditions() {
+        System.out.println("dsdfdsfsdf");
         String weather = weatherObj.getWeather(this.coordinates);
         int tempLong = this.coordinates.getLongitude();
         int tempLat = this.coordinates.getLatitude();

@@ -1,6 +1,6 @@
 
 package methods;
-import methods.WeatherTower;
+//import methods.WeatherTower;
 
 public interface Flyable {
     

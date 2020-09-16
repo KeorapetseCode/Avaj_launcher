@@ -5,6 +5,7 @@ import java.lang.Integer;
 //import methods.Tower;
 //import methods.LogOutput;
 import methods.Simulator;
+import classes.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,9 +28,10 @@ public class Main {
                     System.exit(0);
                 }
                 else {
+                    System.out.println("Showing all registered Aircrafts");
+                    
                     Simulator.startSim();
                     //LogOutput.txtOutput();
-                    //System.out.println("Showing all registered Aircrafts\n " + Tower.observers);
                     myReader.close();
                 }
             }
