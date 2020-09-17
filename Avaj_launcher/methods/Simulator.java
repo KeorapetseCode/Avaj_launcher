@@ -1,17 +1,14 @@
 package methods;
 
-
+import java.lang.Character;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.lang.System;
 import java.util.List;
 import java.util.Iterator;
 import java.lang.Integer;
-
-//import methods.Tower;
-//import methods.WeatherTower;
-
-//import classes.AircraftFactory;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Simulator {
     public static int loop;//This is how many times the iteration of the entire program is gonna run.
@@ -40,13 +37,12 @@ public class Simulator {
             coords = line.split(" ", 3);
             name = objNames.next();
             id_s = objIDs.next();
+    
             if (Integer.parseInt(coords[2]) > 0){ //Height of an aircraft has to be greater than 0 for an aircraft to be considered
                 if (name.equals("Helicopter")){
                     name = "#" + id_s;
                     id_s = Integer.toString(i+1);
                 }
-                //System.out.println("Name is " + name);
-                //System.out.println("Id is " + id_s);
                 vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
                 vehicleObj.registerTower(objCoords); //Cant tell where objCoords ends up
                 mainObj.register(vehicleObj);
@@ -58,7 +54,32 @@ public class Simulator {
             }
             i++;
         }
-        LogOutput.txtOutput(mainObj);
+        //LogOutput.txtOutput(mainObj);
+        
+        Iterator<String> namePlane = Simulator.vehicleNames.iterator();
+        Iterator<String> idPlane = Simulator.vehiclesID.iterator();
+
+        try{
+            FileWriter msgFile = new FileWriter("simulation.txt");
+            while (namePlane.hasNext()) {
+                msgFile.write(LogOutput.msgReg(namePlane.next(), idPlane.next()));
+            }
+            
+            while (Simulator.loop > 0) {
+                mainObj.conditionsChange();
+                Simulator.loop--;
+            }
+            //System.out.println("After 2nd loop");
+            Iterator<String> strOut = LogOutput.logMesg.iterator();
+            while (strOut.hasNext()) {
+                msgFile.write(strOut.next());
+            }
+            msgFile.close();
+        }
+        catch(IOException err) {
+            System.out.println("Cannot create simulation file");
+            err.printStackTrace();
+        }
     }
 
     public static Boolean checkName(String data, String[] vehicleType) {
@@ -105,14 +126,53 @@ public class Simulator {
 
         while (input.hasNext()) {
             line = input.nextLine();
-            data = line.split(" ", 3);
+            data = line.split(" ", 5);
+            if (data.length != 5){
+                System.out.println("There's an Erorr with the input file");
+                //System.out.println("length is " + data.length);
+                System.out.println("0 " + data[0] + " 1 " + data[1] + " 2 " + data[2] + " 3 " + data[3] + " 4 " + data[4] + " \n");
+                return false;
+            }   
+            System.out.println("0 " + data[0] + " 1 " + data[1] + " 2 " + data[2] + " 3 " + data[3] + " 4 " + data[4] + " \n");
+            int a = 0;
+            while (a < data[1].length()){
+                if (data[1].charAt(a) == ' '){
+                    System.out.println("Invalid ID");
+                    return false;
+                }
+                a++;
+            }
+            if (data[1].length() < 2){
+                System.out.println("Invalid ID");
+                return false;
+            }
 
+            int i = 2;
+            a = 0;
+            while (i < 5) {
+                while (a < data[i].length()) {
+                    Boolean flag = Character.isDigit(data[i].charAt(a));
+                    if (flag){
+                        a++;
+                    }
+                    else{
+                        System.out.println("Input Not a Number");
+                        return false;
+                    }
+                }
+                if (data[i].length() == 0){
+                    System.out.println("Input Not a Number");
+                    return false;
+                }
+                a = 0;
+                i++;
+            }
            if (Simulator.checkName(data[0], Simulator.vehicleTypes) == false){
                System.out.println("Invalid Transport " + data[0]);
                return false;
            }
            Simulator.vehicleNames.add(data[0]); //Directly Adding to Global variable
-           Simulator.vehicleCoord.add(data[2]); //Directly Adding to Global variable
+           Simulator.vehicleCoord.add(data[2] + " " + data[3] + " " + data[4]); //Directly Adding to Global variable
            id_s.add(data[1]);
         }
         if (Simulator.checkIdRepl(id_s) == false){

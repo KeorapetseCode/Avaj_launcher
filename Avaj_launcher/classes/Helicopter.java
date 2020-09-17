@@ -54,7 +54,7 @@ public class Helicopter extends Aircrafts implements Flyable{
                 tempHeight = 0;
                 String temp = "(" + Long.toString(this.id) + ")";
                 LogOutput.msgUnReg("Helicopter"+this.name, temp);
-                LogOutput.logMesg.add("Helicopter" + this.name + "("+ this.id + ")" + " It is SNOWING for the Heli " + "\n" + LogOutput.msgUnReg("Helicopter"+this.name, temp));
+                LogOutput.logMesg.add("Helicopter" + this.name + "("+ this.id + ")" + " This Heli is landing " + "\n" + LogOutput.msgUnReg("Helicopter"+this.name, temp));
 
                 Simulator.unReg = this;
             }

@@ -13,6 +13,10 @@ public class AircraftFactory {
             flyable = new Helicopter(type, coordinates);
             return flyable;
         }
+        else{
+            System.out.println("Invalid ID ");
+            System.exit(0);
+        }
         return flyable;
     }
 }

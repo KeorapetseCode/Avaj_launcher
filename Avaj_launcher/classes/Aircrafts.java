@@ -1,6 +1,5 @@
 //import Flyable.java;
 package classes;
-//import classes.Coordinates;
 
 public class Aircrafts {
     

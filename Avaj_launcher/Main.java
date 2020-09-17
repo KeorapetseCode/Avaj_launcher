@@ -19,7 +19,14 @@ public class Main {
                     Simulator.loop = Integer.parseInt(myReader.nextLine());
                 }
                 catch (Exception n){
-                    System.out.println("The first line of scenario is not a number");
+                    System.out.println("The first line of scenario file is not a number");
+                    myReader.close();
+                    System.exit(0);
+                }
+                if (Simulator.loop <= 0){
+                    System.out.println("Iteration Number Not Valid");
+                    myReader.close();
+                    System.exit(0);
                 }
                 if (Simulator.fileValid(myReader) == false) {
                     System.out.println("Invalid File Format");
@@ -27,8 +34,7 @@ public class Main {
                     System.exit(0);
                 }
                 else {
-                    System.out.println("Showing all registered Aircrafts");
-                    
+                    //System.out.println("Showing all registered Aircrafts");
                     Simulator.startSim();
                     //LogOutput.txtOutput();
                     myReader.close();
