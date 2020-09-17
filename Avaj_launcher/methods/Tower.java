@@ -14,20 +14,16 @@ public class Tower {
     }
 
     public void unregister(Flyable flyObj) {
-        //unregister message
         this.observers.remove(flyObj);
     }
 
     protected void conditionsChange() {
-    //System.out.println("output IS ");
-    
+    System.out.println("Pinting each");
+    if (Simulator.unReg != null) {
+        unregister(Simulator.unReg);
+    }
     for (Flyable dl : this.observers){
         dl.updateConditions();
     }
-    /*Iterator<Flyable> iterVar = observers.iterator();
-    while (iterVar.hasNext()){
-        System.out.println("output IS " + i);
-        i++;
-    }*/
     }
 }

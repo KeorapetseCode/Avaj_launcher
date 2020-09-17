@@ -19,7 +19,7 @@ public class LogOutput{
     }
     public static String msgUnReg(String planeName, String planeID) {
         String ret = null;
-        ret = "Tower Says: " + planeName + planeID + "is landing";
+        ret = "Tower Says: " + planeName + planeID + " is landing" + "\n";
         return ret;
     }
 

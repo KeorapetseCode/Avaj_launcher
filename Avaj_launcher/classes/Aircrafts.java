@@ -3,10 +3,15 @@ package classes;
 //import classes.Coordinates;
 
 public class Aircrafts {
-        protected long id;
-        protected String name;
-        protected Coordinates coordinates;
-        private long idCounta;
+    
+    private long nextId(){
+        return idCounta++;
+    }
+
+    protected long id;
+    protected String name;
+    protected Coordinates coordinates;
+    private long idCounta = nextId();
 
     protected void aircraft(String name, Coordinates coordinates){
         this.name = name;
@@ -14,13 +19,7 @@ public class Aircrafts {
         this.idCounta = nextId();
     }
 
-    private long nextId(){
-        return idCounta += 1;
-    }
-
-    public long gettaL() {
-        return idCounta;
-    }
+    
 }
 
 

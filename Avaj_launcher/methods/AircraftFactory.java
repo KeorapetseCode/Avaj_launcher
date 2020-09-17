@@ -13,7 +13,6 @@ public class AircraftFactory {
             type = type + " " + name;
             //System.out.println("Type is " + type + "\n");
             flyable = new Helicopter(type, coordinates);
-            
             return flyable;
         }
         return flyable;

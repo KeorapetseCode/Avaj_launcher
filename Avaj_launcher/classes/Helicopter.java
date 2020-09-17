@@ -31,12 +31,12 @@ public class Helicopter extends Aircrafts implements Flyable{
         if (weather.equals("RAIN")) {
             tempLong += 5;
             this.coordinates.coordinates(tempLong, tempLat, tempHeight);
-            LogOutput.logMesg.add(this.name + "#H" + this.id + "(" + this.id + ")" + " It is RAINING for the Heli " + "\n");
+            LogOutput.logMesg.add(this.name + "#H" + this.id +  " It is RAINING for the Heli " + "\n");
         }
         else if (weather.equals("FOG")) {
             tempLong += 1;
             this.coordinates.coordinates(tempLong, tempLat, tempHeight);
-            LogOutput.logMesg.add(this.name + "#H" + this.id + "(" + this.id + ")" + " It is FOGY for the Heli " + "\n");
+            LogOutput.logMesg.add(this.name + "#H" + this.id + " It is FOGY for the Heli " + "\n");
         }
         else if (weather.equals("SUN")) {
             tempLong += 10;
@@ -45,15 +45,20 @@ public class Helicopter extends Aircrafts implements Flyable{
                 tempHeight = 100;
             }
             this.coordinates.coordinates(tempLong, tempLat, tempHeight);
-            LogOutput.logMesg.add(this.name + "#H" + this.id + "(" + this.id + ")" + " It is SUNNY for the Heli " + "\n");
+            LogOutput.logMesg.add(this.name + "#H" + this.id + " It is SUNNY for the Heli " + "\n");
         }
         else if (weather.equals("SNOW")) {
             tempHeight -= 12;
             if (tempHeight < 1){
                 tempHeight = 0;
+                String temp = "#H" + Long.toString(this.id);
+                LogOutput.logMesg.add(LogOutput.msgUnReg(this.name, temp));
+                Simulator.unReg = this;
             }
-            this.coordinates.coordinates(tempLong, tempLat, tempHeight);
-            LogOutput.logMesg.add(this.name + "#H" + this.id + "(" + this.id + ")" + " It is SNOWING for the Heli " + "\n");
+            else{
+                this.coordinates.coordinates(tempLong, tempLat, tempHeight);
+                LogOutput.logMesg.add(this.name + "#H" + this.id + " It is SNOWING for the Heli " + "\n");
+            }
         }
     }
 
