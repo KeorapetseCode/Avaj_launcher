@@ -18,7 +18,6 @@ public class Simulator {
     public static List<String> vehiclesID = new ArrayList<String>();
     public static List<String> vehicleNames = new ArrayList<String>();
     public static List<String> vehicleCoord = new ArrayList<String>();
-    public static List<Integer> logCounta = new ArrayList<Integer>();
     public static Flyable unReg = null;
 
     public static String[] vehicleTypes = {"Baloon", "Helicopter", "JetPlane"};
@@ -34,7 +33,6 @@ public class Simulator {
         Iterator<String> objIDs = Simulator.vehiclesID.iterator();
         WeatherTower objCoords = new WeatherTower();
         Tower mainObj = new Tower();
-        //AircraftFactory facVar = new AircraftFactory();
 
         while (objNames.hasNext()) {
 
@@ -43,8 +41,13 @@ public class Simulator {
             name = objNames.next();
             id_s = objIDs.next();
             if (Integer.parseInt(coords[2]) > 0){ //Height of an aircraft has to be greater than 0 for an aircraft to be considered
+                if (name.equals("Helicopter")){
+                    name = "#" + id_s;
+                    id_s = Integer.toString(i+1);
+                }
+                //System.out.println("Name is " + name);
+                //System.out.println("Id is " + id_s);
                 vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
-                //logCounta.add(i);
                 vehicleObj.registerTower(objCoords); //Cant tell where objCoords ends up
                 mainObj.register(vehicleObj);
             }
@@ -55,7 +58,6 @@ public class Simulator {
             }
             i++;
         }
-        System.out.println("Call Logout");
         LogOutput.txtOutput(mainObj);
     }
 

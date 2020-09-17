@@ -2,16 +2,17 @@ Tower Says: Helicopter#H1 has registered to the weather tower
 Tower Says: Helicopter#H2 has registered to the weather tower
 Tower Says: Helicopter#H3 has registered to the weather tower
 Tower Says: Helicopter#H4 has registered to the weather tower
-Helicopter#H1 It is SUNNY for the Heli 
-Tower Says: Helicopter#H2 is landing
-Helicopter#H3 It is RAINING for the Heli 
-Helicopter#H4 It is FOGY for the Heli 
-Helicopter#H1 It is SUNNY for the Heli 
-Helicopter#H3 It is SNOWING for the Heli 
-Helicopter#H4 It is SUNNY for the Heli 
-Helicopter#H1 It is FOGY for the Heli 
-Helicopter#H3 It is FOGY for the Heli 
-Helicopter#H4 It is SNOWING for the Heli 
-Tower Says: Helicopter#H1 is landing
-Helicopter#H3 It is SUNNY for the Heli 
-Helicopter#H4 It is SUNNY for the Heli 
+Helicopter#H1(1) It is SNOWING for the Heli 
+Tower Says: Helicopter#H1(1) is landing
+Helicopter#H2(2) It is RAINING for the Heli 
+Helicopter#H3(3) It is RAINING for the Heli 
+Helicopter#H4(4) It is FOGY for the Heli 
+Helicopter#H2(2) It is FOGY for the Heli 
+Helicopter#H3(3) It is RAINING for the Heli 
+Helicopter#H4(4) It is SUNNY for the Heli 
+Helicopter#H2(2) It is SUNNY for the Heli 
+Helicopter#H3(3) It is SUNNY for the Heli 
+Helicopter#H4(4) It is RAINING for the Heli 
+Helicopter#H2(2) It is FOGY for the Heli 
+Helicopter#H3(3) It is RAINING for the Heli 
+Helicopter#H4(4) It is SUNNY for the Heli 

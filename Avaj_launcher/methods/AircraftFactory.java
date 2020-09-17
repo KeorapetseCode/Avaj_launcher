@@ -1,6 +1,5 @@
 package methods;
 import classes.Coordinates;
-//import methods.Flyable;
 import classes.Helicopter;
 
 public class AircraftFactory {
@@ -9,9 +8,8 @@ public class AircraftFactory {
         Flyable flyable = null;
 
         coordinates.coordinates(longitude, latitude, height);
-        if (type.equals("Helicopter")){
+        if (type.charAt(1) == 'H'){
             type = type + " " + name;
-            //System.out.println("Type is " + type + "\n");
             flyable = new Helicopter(type, coordinates);
             return flyable;
         }

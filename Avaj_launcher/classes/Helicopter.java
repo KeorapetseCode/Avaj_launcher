@@ -14,8 +14,9 @@ public class Helicopter extends Aircrafts implements Flyable{
         
         temp = name.split(" ", 2);
         this.name = temp[0];
-        temp[1] = temp[1].replace("H", "");
+        //temp[1] = temp[1].replace("H", "");
         this.id = Long.parseLong(temp[1]);
+        //System.out.println("Name is " + name);
         this.coordinates = coordinates;
         
     }
@@ -31,12 +32,12 @@ public class Helicopter extends Aircrafts implements Flyable{
         if (weather.equals("RAIN")) {
             tempLong += 5;
             this.coordinates.coordinates(tempLong, tempLat, tempHeight);
-            LogOutput.logMesg.add(this.name + "#H" + this.id +  " It is RAINING for the Heli " + "\n");
+            LogOutput.logMesg.add("Helicopter" + this.name + "("+ this.id + ")" + " It is RAINING for the Heli " + "\n");
         }
         else if (weather.equals("FOG")) {
             tempLong += 1;
             this.coordinates.coordinates(tempLong, tempLat, tempHeight);
-            LogOutput.logMesg.add(this.name + "#H" + this.id + " It is FOGY for the Heli " + "\n");
+            LogOutput.logMesg.add("Helicopter" + this.name + "("+ this.id + ")" + " It is FOGY for the Heli " + "\n");
         }
         else if (weather.equals("SUN")) {
             tempLong += 10;
@@ -45,19 +46,21 @@ public class Helicopter extends Aircrafts implements Flyable{
                 tempHeight = 100;
             }
             this.coordinates.coordinates(tempLong, tempLat, tempHeight);
-            LogOutput.logMesg.add(this.name + "#H" + this.id + " It is SUNNY for the Heli " + "\n");
+            LogOutput.logMesg.add("Helicopter" + this.name + "("+ this.id + ")" + " It is SUNNY for the Heli " + "\n");
         }
         else if (weather.equals("SNOW")) {
             tempHeight -= 12;
             if (tempHeight < 1){
                 tempHeight = 0;
-                String temp = "#H" + Long.toString(this.id);
-                LogOutput.logMesg.add(LogOutput.msgUnReg(this.name, temp));
+                String temp = "(" + Long.toString(this.id) + ")";
+                LogOutput.msgUnReg("Helicopter"+this.name, temp);
+                LogOutput.logMesg.add("Helicopter" + this.name + "("+ this.id + ")" + " It is SNOWING for the Heli " + "\n" + LogOutput.msgUnReg("Helicopter"+this.name, temp));
+
                 Simulator.unReg = this;
             }
             else{
                 this.coordinates.coordinates(tempLong, tempLat, tempHeight);
-                LogOutput.logMesg.add(this.name + "#H" + this.id + " It is SNOWING for the Heli " + "\n");
+                LogOutput.logMesg.add("Helicopter" + this.name + "("+ this.id + ")" + " It is SNOWING for the Heli " + "\n");
             }
         }
     }

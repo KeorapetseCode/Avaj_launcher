@@ -18,7 +18,6 @@ public class Tower {
     }
 
     protected void conditionsChange() {
-    System.out.println("Pinting each");
     if (Simulator.unReg != null) {
         unregister(Simulator.unReg);
     }
