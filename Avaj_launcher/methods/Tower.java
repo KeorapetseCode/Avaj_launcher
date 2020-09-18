@@ -1,10 +1,6 @@
 
 package methods;
-//import methods.Flyable;
 import java.util.ArrayList;
-//import java.util.Iterator;
-
-//import classes.Aircrafts;
 
 public class Tower {
     private ArrayList<Flyable> observers = new ArrayList<Flyable>();
@@ -26,10 +22,5 @@ public class Tower {
     for (Flyable dl : this.observers){
         dl.updateConditions();
     }
-    /*
-    if (this.observers.isEmpty() == true){
-        System.out.println("Array is now empty " + this.observers.size());
-        System.exit(0);
-    }*/
     }
 }

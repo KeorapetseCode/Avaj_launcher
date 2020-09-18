@@ -43,6 +43,14 @@ public class Simulator {
                     name = "#" + id_s;
                     id_s = Integer.toString(i+1);
                 }
+                else if (name.equals("JetPlane")){
+                    name = "#" + id_s;
+                    id_s = Integer.toString(i+1);
+                }
+                else if (name.equals("Baloon")){
+                    name = "#" + id_s;
+                    id_s = Integer.toString(i+1);
+                }
                 vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
                 vehicleObj.registerTower(objCoords); //Cant tell where objCoords ends up
                 mainObj.register(vehicleObj);
@@ -53,9 +61,7 @@ public class Simulator {
                 Simulator.vehicleCoord.remove(line);
             }
             i++;
-        }
-        //LogOutput.txtOutput(mainObj);
-        
+        }        
         Iterator<String> namePlane = Simulator.vehicleNames.iterator();
         Iterator<String> idPlane = Simulator.vehiclesID.iterator();
 

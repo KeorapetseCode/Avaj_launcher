@@ -2,8 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.lang.Integer;
-//import methods.Tower;
-//import methods.LogOutput;
 import methods.Simulator;
 
 public class Main {
@@ -34,15 +32,14 @@ public class Main {
                     System.exit(0);
                 }
                 else {
-                    //System.out.println("Showing all registered Aircrafts");
                     Simulator.startSim();
-                    //LogOutput.txtOutput();
                     myReader.close();
                 }
             }
             catch(FileNotFoundException err){
-                System.out.println("An Error Occured!");
-                err.printStackTrace();
+                System.out.println("An Error Occured!" + "\n" + "Scenario File Error");
+                
+                //err.printStackTrace();
             }
         }
     }
