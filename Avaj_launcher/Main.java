@@ -6,7 +6,7 @@ import methods.Simulator;
 
 public class Main {
     public static void main(String[] args) {
-        if (args.length < 1){
+        if (args.length != 1){
             System.out.println("Invalid input file");
         }
         else if (args.length == 1){
@@ -38,9 +38,10 @@ public class Main {
             }
             catch(FileNotFoundException err){
                 System.out.println("An Error Occured!" + "\n" + "Scenario File Error");
-                
-                //err.printStackTrace();
             }
+        }
+        else{
+            System.out.println("Error Please Check Input File");
         }
     }
 }

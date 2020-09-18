@@ -34,11 +34,14 @@ public class Simulator {
         while (objNames.hasNext()) {
 
             line = Simulator.vehicleCoord.get(i);
+            //System.out.println(Simulator.vehicleCoord.get(i));
+            //System.exit(0);
             coords = line.split(" ", 3);
+            //System.out.println("R " + coords[0] + " " + coords[1] + " " + coords[2] + "\n");
             name = objNames.next();
             id_s = objIDs.next();
     
-            if (Integer.parseInt(coords[2]) > 0){ //Height of an aircraft has to be greater than 0 for an aircraft to be considered
+            //if (Integer.parseInt(coords[2]) > 0){ //Height of an aircraft has to be greater than 0 for an aircraft to be considered
                 if (name.equals("Helicopter")){
                     name = "#" + id_s;
                     id_s = Integer.toString(i+1);
@@ -54,14 +57,14 @@ public class Simulator {
                 vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
                 vehicleObj.registerTower(objCoords); //Cant tell where objCoords ends up
                 mainObj.register(vehicleObj);
-            }
+            /*}
             else {
                 Simulator.vehicleNames.remove(name);
                 Simulator.vehiclesID.remove(id_s);
                 Simulator.vehicleCoord.remove(line);
-            }
+            }*/
             i++;
-        }        
+        }
         Iterator<String> namePlane = Simulator.vehicleNames.iterator();
         Iterator<String> idPlane = Simulator.vehiclesID.iterator();
 
@@ -130,16 +133,20 @@ public class Simulator {
         String[] data = null;
         String line = null;
 
+        if (input.hasNext() == false){
+            System.out.println("Error in the input file" + "\n");
+            return false;
+        }
         while (input.hasNext()) {
             line = input.nextLine();
             data = line.split(" ", 5);
             if (data.length != 5){
                 System.out.println("There's an Erorr with the input file");
                 //System.out.println("length is " + data.length);
-                System.out.println("0 " + data[0] + " 1 " + data[1] + " 2 " + data[2] + " 3 " + data[3] + " 4 " + data[4] + " \n");
+                //System.out.println("0 " + data[0] + " 1 " + data[1] + " 2 " + data[2] + " 3 " + data[3] + " 4 " + data[4] + " \n");
                 return false;
             }   
-            System.out.println("0 " + data[0] + " 1 " + data[1] + " 2 " + data[2] + " 3 " + data[3] + " 4 " + data[4] + " \n");
+            //System.out.println("0 " + data[0] + " 1 " + data[1] + " 2 " + data[2] + " 3 " + data[3] + " 4 " + data[4] + " \n");
             int a = 0;
             while (a < data[1].length()){
                 if (data[1].charAt(a) == ' '){
