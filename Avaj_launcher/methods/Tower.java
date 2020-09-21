@@ -1,6 +1,7 @@
 
 package methods;
 import java.util.ArrayList;
+//import java.util.Iterator;
 
 public class Tower {
     private ArrayList<Flyable> observers = new ArrayList<Flyable>();
@@ -14,13 +15,15 @@ public class Tower {
     }
 
     protected void conditionsChange() {
-    if (Simulator.unReg != null) {
-        unregister(Simulator.unReg);
-        Simulator.unReg = null;
-    }
-    
-    for (Flyable dl : this.observers){
-        dl.updateConditions();
-    }
+        int i = 0;
+        int len = Simulator.unReg.size();
+        
+        while (i < len){
+            unregister(Simulator.unReg.get(i));
+            i++;
+        }
+        for (Flyable dl : this.observers){
+            dl.updateConditions();
+        }
     }
 }

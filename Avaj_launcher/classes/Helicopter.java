@@ -53,10 +53,9 @@ public class Helicopter extends Aircrafts implements Flyable{
             if (tempHeight < 1){
                 tempHeight = 0;
                 String temp = "(" + Long.toString(this.id) + ")";
-                //LogOutput.msgUnReg("Helicopter"+this.name, temp);
                 LogOutput.logMesg.add("Helicopter" + this.name + "("+ this.id + ")" + " This Heli is landing " + "\n" + LogOutput.msgUnReg("Helicopter"+this.name, temp));
 
-                Simulator.unReg = this;
+                Simulator.unReg.add(this);
             }
             else{
                 this.coordinates.coordinates(tempLong, tempLat, tempHeight);

@@ -50,7 +50,7 @@ public class JetPlane extends Aircrafts implements Flyable {
                 String temp = "(" + Long.toString(this.id) + ")";
                 //LogOutput.msgUnReg("JetPlane"+this.name, temp);
                 LogOutput.logMesg.add("JetPlane" + this.name + "("+ this.id + ")" + "The JetPlane is landing..." + "\n" + LogOutput.msgUnReg("JetPlane"+this.name, temp));
-                Simulator.unReg = this;
+                Simulator.unReg.add(this);
             }
             else{
                 this.coordinates.coordinates(tempLong, tempLat, tempHeight);

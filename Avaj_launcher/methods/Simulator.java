@@ -15,8 +15,9 @@ public class Simulator {
     public static List<String> vehiclesID = new ArrayList<String>();
     public static List<String> vehicleNames = new ArrayList<String>();
     public static List<String> vehicleCoord = new ArrayList<String>();
-    public static Flyable unReg = null;
+    public static ArrayList<Flyable> unReg = new ArrayList<Flyable>();
 
+    //unReg = null;
     public static String[] vehicleTypes = {"Baloon", "Helicopter", "JetPlane"};
 
     public static void startSim() {
@@ -34,35 +35,26 @@ public class Simulator {
         while (objNames.hasNext()) {
 
             line = Simulator.vehicleCoord.get(i);
-            //System.out.println(Simulator.vehicleCoord.get(i));
-            //System.exit(0);
             coords = line.split(" ", 3);
-            //System.out.println("R " + coords[0] + " " + coords[1] + " " + coords[2] + "\n");
             name = objNames.next();
             id_s = objIDs.next();
     
-            //if (Integer.parseInt(coords[2]) > 0){ //Height of an aircraft has to be greater than 0 for an aircraft to be considered
-                if (name.equals("Helicopter")){
-                    name = "#" + id_s;
-                    id_s = Integer.toString(i+1);
-                }
-                else if (name.equals("JetPlane")){
-                    name = "#" + id_s;
-                    id_s = Integer.toString(i+1);
-                }
-                else if (name.equals("Baloon")){
-                    name = "#" + id_s;
-                    id_s = Integer.toString(i+1);
-                }
-                vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
-                vehicleObj.registerTower(objCoords); //Cant tell where objCoords ends up
-                mainObj.register(vehicleObj);
-            /*}
-            else {
-                Simulator.vehicleNames.remove(name);
-                Simulator.vehiclesID.remove(id_s);
-                Simulator.vehicleCoord.remove(line);
-            }*/
+            if (name.equals("Helicopter")){
+                name = "#" + id_s;
+                id_s = Integer.toString(i+1);
+            }
+            else if (name.equals("JetPlane")){
+                name = "#" + id_s;
+                id_s = Integer.toString(i+1);
+            }
+            else if (name.equals("Baloon")){
+                name = "#" + id_s;
+                id_s = Integer.toString(i+1);
+            }
+            vehicleObj = AircraftFactory.newAircraft(name, id_s, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]));
+            vehicleObj.registerTower(objCoords); //Cant tell where objCoords ends up
+            mainObj.register(vehicleObj);
+            //System.out.println(name + " " + id_s + " has registered");
             i++;
         }
         Iterator<String> namePlane = Simulator.vehicleNames.iterator();
@@ -78,7 +70,6 @@ public class Simulator {
                 mainObj.conditionsChange();
                 Simulator.loop--;
             }
-            //System.out.println("After 2nd loop");
             Iterator<String> strOut = LogOutput.logMesg.iterator();
             while (strOut.hasNext()) {
                 msgFile.write(strOut.next());

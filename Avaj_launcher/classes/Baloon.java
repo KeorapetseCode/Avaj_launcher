@@ -31,7 +31,7 @@ public class Baloon extends Aircrafts implements Flyable {
                 tempHeight = 0;
                 String temp = "(" + Long.toString(this.id) + ")";
                 LogOutput.logMesg.add("Baloon" + this.name + "(" + this.id + ")" + "This Baloon has to land it is not safe" + "\n" + LogOutput.msgUnReg("Baloon"+this.name, temp));
-                Simulator.unReg = this;
+                Simulator.unReg.add(this);
             }
             else{
                 this.coordinates.coordinates(tempLong, tempLat, tempHeight);
@@ -44,7 +44,7 @@ public class Baloon extends Aircrafts implements Flyable {
                 tempHeight = 0;
                 String temp = "(" + Long.toString(this.id) + ")";
                 LogOutput.logMesg.add("Baloon" + this.name + "(" + this.id + ")" + "This Baloon has to land we can't see" + "\n" + LogOutput.msgUnReg("Baloon"+this.name, temp));
-                Simulator.unReg = this;
+                Simulator.unReg.add(this);
             }
             else{
                 this.coordinates.coordinates(tempLong, tempLat, tempHeight);
@@ -66,7 +66,7 @@ public class Baloon extends Aircrafts implements Flyable {
                 tempHeight = 0;
                 String temp = "(" + Long.toString(this.id) + ")";
                 LogOutput.logMesg.add("Baloon" + this.name + "(" + this.id + ")" + "Baloon engine froze!!" + "\n" + LogOutput.msgUnReg("Baloon"+this.name, temp));
-                Simulator.unReg = this;
+                Simulator.unReg.add(this);
             }
             else{
                 this.coordinates.coordinates(tempLong, tempLat, tempHeight);
