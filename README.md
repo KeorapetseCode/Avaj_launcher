@@ -5,6 +5,7 @@
 # Objective <br />
   We were required to follow a specific hierechical class order and apply certain class modifiers. <br />
   We built an Aircraft main class and had 3 other types of Aircrafts (Plane, Baloon etc) inherit from it. <br />
+  The application is to take an input file (txt) and print out the results to a 
   
   - Unified Modeling Language. <br />
   - MVC <br />
@@ -14,6 +15,7 @@
 # How To Run
 - $find -name *.java > sources.txt <br />
 - $javac -sourcepath @sources.txt <br />
+- The application can also be ran with a startAvaj.sh script
   <br />
 
 # Prerequisites
