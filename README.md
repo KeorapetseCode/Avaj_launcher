@@ -12,4 +12,4 @@
 - $javac -sourcepath @sources.txt <br />
 
 # Prerequisites
-  This is a command line program. javac and java is to be installed prior. Maven cannot be used to compile the source files. 
+  This is a command line program. javac and java is to be installed prior. Maven cannot be used to compile the source files as per the question paper required.
