@@ -1,6 +1,6 @@
 # Avaj_launcher
   Flight simulation program built in Java. <br />
-  This program is  <br />
+  This program is an introduction to basic OOP concepts.<br />
 # Objective <br />
   We were required to follow a specific hierechical class specification and apply certain class modifiers in our implementation <br />
   - Unified Modeling Language. <br />
